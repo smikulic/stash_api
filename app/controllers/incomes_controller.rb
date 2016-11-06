@@ -1,3 +1,4 @@
+# Defines incomes controller
 class IncomesController < ApplicationController
   before_action :set_income, only: [:show, :update, :destroy]
 
@@ -35,11 +36,12 @@ class IncomesController < ApplicationController
 
   private
 
-    def set_income
-      @income = Income.find(params[:id])
-    end
+  def set_income
+    @income = Income.find(params[:id])
+  end
 
-    def income_params
-      params.require(:income).permit(:user_id, :title, :category, :value, :currency, :entry_date)
-    end
+  def income_params
+    params.require(:income).permit(:user_id, :title, :category, :value,
+                                   :currency, :entry_date)
+  end
 end
