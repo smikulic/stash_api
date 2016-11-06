@@ -58,49 +58,48 @@ RSpec.describe IncomesController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
+  describe 'PUT #update' do
+    context 'with valid params' do
       let(:new_attributes) {
-        { user_id: "123abc", title: "Random Bank AG", category: "Salary", value: 170000, currency: "EUR", entry_date: "Sun, 06 Nov 2016 12:04:10 +0100" }
+        { user_id: '123abc', title: 'Random Bank AG', category: 'Salary', value: 170000, currency: 'EUR', entry_date: 'Sun, 06 Nov 2016 12:04:10 +0100' }
       }
 
-      it "updates the requested income" do
+      it 'updates the requested income' do
         put :update, { id: income.id, income: new_attributes, format: :json  }
         income.reload
         expect(income.value).to eq(170000)
-        expect(income.currency).to eq("EUR")
+        expect(income.currency).to eq('EUR')
       end
 
-      it "assigns the requested income as @income" do
+      it 'assigns the requested income as @income' do
         put :update, { id: income.id, income: valid_attributes, format: :json  }
         expect(assigns(:income)).to eq(income)
       end
     end
 
-    context "with invalid params" do
-      it "assigns the income as @income" do
+    context 'with invalid params' do
+      it 'assigns the income as @income' do
         put :update, { id: income.id, income: invalid_attributes, format: :json  }
         expect(assigns(:income)).to eq(income)
       end
 
-      it "returns unprocessable_entity status" do
+      it 'returns unprocessable_entity status' do
         put :update, { id: income.id, income: invalid_attributes, format: :json }
         expect(response.status).to eq(422)
       end
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested income" do
+  describe 'DELETE #destroy' do
+    it 'destroys the requested income' do
       expect {
-        delete :destroy, { id: income.id, format: :json  }
+        delete :destroy, { id: income.id, format: :json }
       }.to change(Income, :count).by(-1)
     end
 
-    it "redirects to the incomes list" do
-      delete :destroy, { id: income.id, format: :json  }
+    it 'redirects to the incomes list' do
+      delete :destroy, { id: income.id, format: :json }
       expect(response.status).to eq(204)
     end
   end
-
 end
