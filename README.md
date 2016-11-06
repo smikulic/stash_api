@@ -1,5 +1,10 @@
 # README
 
+[![Code Climate](https://codeclimate.com/github/smikulic/stash_api/badges/gpa.svg)](https://codeclimate.com/github/smikulic/stash_api)
+[![Test Coverage](https://codeclimate.com/github/smikulic/stash_api/badges/coverage.svg)](https://codeclimate.com/github/smikulic/stash_api/coverage)
+[![Issue Count](https://codeclimate.com/github/smikulic/stash_api/badges/issue_count.svg)](https://codeclimate.com/github/smikulic/stash_api)
+[![CircleCI](https://circleci.com/gh/smikulic/stash_api.svg?style=svg)](https://circleci.com/gh/smikulic/stash_api)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
