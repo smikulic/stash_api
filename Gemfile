@@ -9,6 +9,9 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 # Build JSON APIs with ease.
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+# Devise authentication
+gem 'omniauth'
+gem 'devise_token_auth'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
