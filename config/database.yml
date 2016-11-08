@@ -41,3 +41,9 @@ test:
   database: test.scroogevault.co
   username: root
   password: root
+
+development:
+  <<: *default
+  database: api-staging.scroogevault
+  username: root
+  password: root
