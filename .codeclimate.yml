@@ -10,15 +10,12 @@ engines:
       languages:
       - ruby
       - javascript
-      - python
-      - php
   fixme:
     enabled: true
   rubocop:
     enabled: true
 ratings:
   paths:
-  - Gemfile.lock
   - "**.erb"
   - "**.haml"
   - "**.rb"
@@ -28,9 +25,8 @@ ratings:
   - "**.js"
   - "**.jsx"
   - "**.module"
-  - "**.php"
-  - "**.py"
 exclude_paths:
+- Gemfile.lock
 - config/
 - db/
 - spec/
