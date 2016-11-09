@@ -32,18 +32,18 @@ default: &default
 
 development:
   <<: *default
-  database: dev.scroogevault.co
-  username: root
-  password: root
+  database: DB_NAME
+  username: USERNAME
+  password: PW
 
 test:
   <<: *default
-  database: test.scroogevault.co
-  username: root
-  password: root
+  database: TEST_DB_NAME
+  username: USERNAME
+  password: PW
 
 production:
   <<: *default
-  database: api-staging.scroogevault
-  username: deploy
-  password:
+  database: PRODUCTION_DB_NAME
+  username: USERNAME
+  password: PW
