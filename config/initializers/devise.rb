@@ -1,1 +1,1 @@
-Devise.secret_key = ENV['DEVISE_SECRET_KEY']
+Devise.secret_key = Rails.application.secrets.devise_secret_key
