@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Defines incomes controller
 class IncomesController < ApplicationController
   before_action :set_income, only: [:show, :update, :destroy]
