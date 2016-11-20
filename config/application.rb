@@ -25,6 +25,8 @@ module StashApi
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+    Devise.secret_key = '30a2a95419936e3bae3d8cf64c8d68cfa22f177bca9cc1964769413867ea8c8be5a34d91f2c6ef4b3176e77779a0dc4a49a5e32e40a7c006faf92c2a6830ab74'
+
     config.api_only = true
   end
 end
