@@ -20,6 +20,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore secrets
+# Ignore secrets & puma
 config/secrets.yml
 config/database.yml
+config/puma.rb
