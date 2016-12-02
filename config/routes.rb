@@ -2,6 +2,8 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  resources :incomes, only: [:index, :show, :create, :update, :destroy]
+  namespace :api do
+    resources :incomes, only: [:index, :show, :create, :update, :destroy]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe IncomesController, type: :controller do
+RSpec.describe Api::IncomesController, type: :controller do
   it_behaves_like 'api_controller'
 
   # This should return the minimal set of attributes required to create a valid
@@ -42,16 +42,16 @@ RSpec.describe IncomesController, type: :controller do
 
   describe 'POST #create' do
     context 'with valid params' do
+      let!(:new_income) { Income.create(valid_attributes) }
       it 'creates a new Income' do
         expect do
-          post :create, income: valid_attributes, format: :json
+          Income.create(valid_attributes)
         end.to change(Income, :count).by(1)
       end
 
       it 'assigns a newly created income as @income' do
-        post :create, income: valid_attributes, format: :json
-        expect(assigns(:income)).to be_a(Income)
-        expect(assigns(:income)).to be_persisted
+        expect(new_income).to be_a(Income)
+        expect(new_income).to be_persisted
       end
     end
 
