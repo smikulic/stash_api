@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :incomes, only: [:index, :show, :create, :update, :destroy]
+
+    resources :users do
+      resources :saving_goals, only: [:index, :show, :create, :update, :destroy]
+      resources :settings, only: [:show, :create, :update, :destroy]
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
