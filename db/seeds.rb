@@ -30,3 +30,10 @@ end
 ].each do |saving_goal_attributes|
   SavingGoal.create(saving_goal_attributes)
 end
+
+[
+  { user_id: '1', average_monthly_incomes: 2700, average_monthly_expenses: 1800, main_currency: 'EUR'},
+  { user_id: '2', average_monthly_incomes: 3000, average_monthly_expenses: 1800, main_currency: 'USD'},
+].each do |setting_attributes|
+  Setting.create(setting_attributes)
+end

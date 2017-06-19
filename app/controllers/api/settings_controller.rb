@@ -34,7 +34,7 @@ module Api
     private
 
     def set_setting
-      @setting = Setting.find(params[:id])
+      @setting = Setting.where(user_id: params[:user_id], id: params[:id])
     end
 
     def setting_params
