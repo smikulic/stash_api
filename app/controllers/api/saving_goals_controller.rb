@@ -40,11 +40,19 @@ module Api
     private
 
     def set_saving_goal
-      @saving_goal = SavingGoal.where(user_id: params[:user_id], id: params[:id])
+      @saving_goal = SavingGoal.where(
+        user_id: params[:user_id],
+        id: params[:id]
+      )
     end
 
     def saving_goal_params
-      params.require(:saving_goal).permit(:user_id, :description, :deadline, :value)
+      params.require(:saving_goal).permit(
+        :user_id,
+        :description,
+        :deadline,
+        :value
+      )
     end
   end
 end

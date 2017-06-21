@@ -39,7 +39,7 @@ module Api
 
     def setting_params
       params.require(:setting).permit(:user_id, :average_monthly_incomes,
-                                     :average_monthly_expenses, :main_currency)
+                                      :average_monthly_expenses, :main_currency)
     end
   end
 end
