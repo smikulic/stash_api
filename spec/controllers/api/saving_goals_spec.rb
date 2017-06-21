@@ -24,12 +24,12 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
 
   let!(:saving_goal) { SavingGoal.create(valid_attributes) }
 
-  # describe 'GET #index' do
-  #   it 'assigns all saving_goals as @saving_goals' do
-  #     get :index, format: :json
-  #     expect(assigns(:saving_goals)).to eq([saving_goal])
-  #   end
-  # end
+  describe 'GET #index' do
+    it 'assigns all saving_goals as @saving_goals' do
+      get 'api/saving_goals#index', format: :json
+      expect(assigns(:saving_goals)).to eq([saving_goal])
+    end
+  end
 
   # describe 'GET #show' do
   #   it 'assigns the requested income as @income' do
