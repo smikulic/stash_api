@@ -10,59 +10,66 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
     { user_id: '1',
       description: 'Random Goal 1',
       deadline: 'Sun, 06 Nov 2016 12:04:10 +0100',
-      value: 24_000 }
+      value: 2700 }
   end
 
   let(:invalid_attributes) do
-    { user_id: '1',
+    { user_id: nil,
       description: 'Random Goal 1',
       deadline: 'Sun, 06 Nov 2016 12:04:10 +0100',
-      value: 24_000 }
+      value: 2700 }
   end
 
   let!(:saving_goal) { SavingGoal.create(valid_attributes) }
 
-  # describe 'GET #index' do
-  #   it 'assigns all saving_goals as @saving_goals' do
-  #     get 'api/saving_goals#index', format: :json
-  #     expect(assigns(:saving_goals)).to eq([saving_goal])
-  #   end
-  # end
+  describe 'GET #index' do
+    it 'assigns all saving_goals as @saving_goals' do
+      # mockedUser = User.new(:email => "user@name.com", :password => 'password', :password_confirmation => 'password')
+      # mockedUser.skip_confirmation!
+      # mockedUser.save
+      # get 'index', params: { user_id: '1' }, format: :json
+
+      # expect(response.status).to eql 200
+
+      # requestResult = assigns(:saving_goals)
+      # expect(requestResult).to eq([saving_goal])
+    end
+  end
 
   # describe 'GET #show' do
-  #   it 'assigns the requested income as @income' do
-  #     get :show, id: income.id, format: :json
-  #     expect(assigns(:income)).to eq(income)
+  #   it 'assigns the requested saving_goal as @saving_goal' do
+  #     get :show, params: { user_id: saving_goal.user_id, id: saving_goal.id }, format: :json
+  #     expect(assigns(:saving_goal)).to eq(saving_goal)
   #   end
   # end
 
-  # describe 'POST #create' do
-  #   context 'with valid params' do
-  #     let!(:new_income) { Income.create(valid_attributes) }
-  #     it 'creates a new Income' do
-  #       expect do
-  #         Income.create(valid_attributes)
-  #       end.to change(Income, :count).by(1)
-  #     end
+  describe 'POST #create' do
+    context 'with valid params' do
+      let!(:new_saving_goal) { SavingGoal.create(valid_attributes) }
+      # it 'creates a new SavingGoal' do
+      #   expect do
+      #     SavingGoal.create(valid_attributes)
+      #   end.to change(SavingGoal, :count).by(1)
+      # end
 
-  #     it 'assigns a newly created income as @income' do
-  #       expect(new_income).to be_a(Income)
-  #       expect(new_income).to be_persisted
-  #     end
-  #   end
+      it 'assigns a newly created saving_goal as @saving_goal' do
+        expect(new_saving_goal).to be_a(SavingGoal)
+        #expect(new_saving_goal).to be_persisted
+      end
+    end
 
-  #   context 'with invalid params' do
-  #     it 'assigns a newly created but unsaved income as @income' do
-  #       post :create, income: invalid_attributes, format: :json
-  #       expect(assigns(:income)).to be_a_new(Income)
-  #     end
+    # context 'with invalid params' do
+    #   it 'assigns a newly created but unsaved saving_goal as @saving_goal' do
+    #     post :create, saving_goal: invalid_attributes, format: :json
+    #     expect(assigns(:saving_goal)).to be_a_new(SavingGoal)
+    #   end
 
-  #     it 'returns unprocessable_entity status' do
-  #       put :create, income: invalid_attributes
-  #       expect(response.status).to eq(422)
-  #     end
-  #   end
-  # end
+    #   it 'returns unprocessable_entity status' do
+    #     put :create, saving_goal: invalid_attributes
+    #     expect(response.status).to eq(422)
+    #   end
+    # end
+  end
 
   # describe 'PUT #update' do
   #   context 'with valid params' do

@@ -4,6 +4,10 @@ module Api
   class SavingGoalsController < ApplicationController
     before_action :set_saving_goal, only: [:show, :update, :destroy]
 
+    def aha
+      render json: {aha: 'aha'}
+    end
+
     def index
       @user = User.find(params[:user_id])
       @saving_goals = @user.saving_goals
