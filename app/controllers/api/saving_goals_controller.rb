@@ -9,12 +9,12 @@ module Api
     end
 
     def index
-      @user = User.find(params[:user_id])
-      @saving_goals = @user.saving_goals
+      @saving_goals = User.find(params[:user_id]).saving_goals
       render json: @saving_goals
     end
 
     def show
+      @saving_goal = @saving_goal
       render json: @saving_goal
     end
 

@@ -5,7 +5,7 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
   # it_behaves_like 'api_controller'
 
   # This should return the minimal set of attributes required to create a valid
-  # Income.
+  # Saving goal.
   let(:valid_attributes) do
     { user_id: '1',
       description: 'Random Goal 1',
@@ -24,24 +24,49 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
 
   describe 'GET #index' do
     it 'assigns all saving_goals as @saving_goals' do
-      # mockedUser = User.new(:email => "user@name.com", :password => 'password', :password_confirmation => 'password')
-      # mockedUser.skip_confirmation!
-      # mockedUser.save
-      # get 'index', params: { user_id: '1' }, format: :json
+      mockedUser = User.new(:email => "admin@name.com", :password => 'password', :password_confirmation => 'password')
+      mockedUser.skip_confirmation!
+      mockedUser.save
 
-      # expect(response.status).to eql 200
+      mockedSavingGoal = SavingGoal.new(:user_id => mockedUser.id,
+                                        :description => 'goal description',
+                                        :deadline => '2099-01-01',
+                                        :value => 2700)
+      mockedSavingGoal.save
 
-      # requestResult = assigns(:saving_goals)
-      # expect(requestResult).to eq([saving_goal])
+      get :index, params: { user_id: mockedUser.id }, format: :json
+
+      requestResult = assigns(:saving_goals)
+      expect(response.status).to eql 200
+      expect(requestResult).to include(mockedSavingGoal)
+
+      mockedUser.destroy
+      mockedSavingGoal.destroy
     end
   end
 
-  # describe 'GET #show' do
-  #   it 'assigns the requested saving_goal as @saving_goal' do
-  #     get :show, params: { user_id: saving_goal.user_id, id: saving_goal.id }, format: :json
-  #     expect(assigns(:saving_goal)).to eq(saving_goal)
-  #   end
-  # end
+  describe 'GET #show' do
+    it 'assigns the requested saving_goal as @saving_goal' do
+      mockedUser = User.new(:email => "admin@name.com", :password => 'password', :password_confirmation => 'password')
+      mockedUser.skip_confirmation!
+      mockedUser.save
+
+      mockedSavingGoal = SavingGoal.new(:user_id => mockedUser.id,
+                                        :description => 'goal description',
+                                        :deadline => '2099-01-01',
+                                        :value => 2700)
+      mockedSavingGoal.save
+
+      get :show, params: { user_id: mockedUser.id, id: mockedSavingGoal.id }, format: :json
+
+      requestResult = assigns(:saving_goal)
+      expect(response.status).to eql 200
+      expect(requestResult).to include(mockedSavingGoal)
+
+      mockedUser.destroy
+      mockedSavingGoal.destroy
+    end
+  end
 
   describe 'POST #create' do
     context 'with valid params' do
@@ -109,14 +134,14 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
   # end
 
   # describe 'DELETE #destroy' do
-  #   it 'destroys the requested income' do
+  #   it 'destroys the requested saving_goal' do
   #     expect do
-  #       delete :destroy, id: income.id, format: :json
-  #     end.to change(Income, :count).by(-1)
+  #       delete :destroy, params: { id: saving_goal.id }, format: :json
+  #     end.to change(SavingGoal, :count).by(-1)
   #   end
 
-  #   it 'redirects to the incomes list' do
-  #     delete :destroy, id: income.id, format: :json
+  #   it 'redirects to the saving saving_goals list' do
+  #     delete :destroy, params: { id: saving_goal.id }, format: :json
   #     expect(response.status).to eq(204)
   #   end
   # end
