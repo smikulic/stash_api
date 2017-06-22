@@ -24,47 +24,56 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
 
   describe 'GET #index' do
     it 'assigns all saving_goals as @saving_goals' do
-      mockedUser = User.new(:email => "admin@name.com", :password => 'password', :password_confirmation => 'password')
-      mockedUser.skip_confirmation!
-      mockedUser.save
+      mocked_user = User.new(email: 'admin@name.com',
+                             password: 'password',
+                             password_confirmation: 'password')
+      mocked_user.skip_confirmation!
+      mocked_user.save
 
-      mockedSavingGoal = SavingGoal.new(:user_id => mockedUser.id,
-                                        :description => 'goal description',
-                                        :deadline => '2099-01-01',
-                                        :value => 2700)
-      mockedSavingGoal.save
+      mocked_saving_goal = SavingGoal.new(user_id: mocked_user.id,
+                                          description: 'goal description',
+                                          deadline: '2099-01-01',
+                                          value: 2700)
+      mocked_saving_goal.save
 
-      get :index, params: { user_id: mockedUser.id }, format: :json
+      get :index, params: { user_id: mocked_user.id }, format: :json
 
-      requestResult = assigns(:saving_goals)
+      request_result = assigns(:saving_goals)
       expect(response.status).to eql 200
-      expect(requestResult).to include(mockedSavingGoal)
+      expect(request_result).to include(mocked_saving_goal)
 
-      mockedUser.destroy
-      mockedSavingGoal.destroy
+      mocked_user.destroy
+      mocked_saving_goal.destroy
     end
   end
 
   describe 'GET #show' do
     it 'assigns the requested saving_goal as @saving_goal' do
-      mockedUser = User.new(:email => "admin@name.com", :password => 'password', :password_confirmation => 'password')
-      mockedUser.skip_confirmation!
-      mockedUser.save
+      mocked_user = User.new(email: 'admin@name.com',
+                             password: 'password',
+                             password_confirmation: 'password')
+      mocked_user.skip_confirmation!
+      mocked_user.save
 
-      mockedSavingGoal = SavingGoal.new(:user_id => mockedUser.id,
-                                        :description => 'goal description',
-                                        :deadline => '2099-01-01',
-                                        :value => 2700)
-      mockedSavingGoal.save
+      mocked_saving_goal = SavingGoal.new(user_id: mocked_user.id,
+                                          description: 'goal description',
+                                          deadline: '2099-01-01',
+                                          value: 2700)
+      mocked_saving_goal.save
 
-      get :show, params: { user_id: mockedUser.id, id: mockedSavingGoal.id }, format: :json
+      get :show,
+          params: {
+            user_id: mocked_user.id,
+            id: mocked_saving_goal.id
+          },
+          format: :json
 
-      requestResult = assigns(:saving_goal)
+      request_result = assigns(:saving_goal)
       expect(response.status).to eql 200
-      expect(requestResult).to include(mockedSavingGoal)
+      expect(request_result).to include(mocked_saving_goal)
 
-      mockedUser.destroy
-      mockedSavingGoal.destroy
+      mocked_user.destroy
+      mocked_saving_goal.destroy
     end
   end
 
@@ -79,7 +88,7 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
 
       it 'assigns a newly created saving_goal as @saving_goal' do
         expect(new_saving_goal).to be_a(SavingGoal)
-        #expect(new_saving_goal).to be_persisted
+        # expect(new_saving_goal).to be_persisted
       end
     end
 

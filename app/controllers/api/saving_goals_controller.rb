@@ -5,7 +5,7 @@ module Api
     before_action :set_saving_goal, only: [:show, :update, :destroy]
 
     def aha
-      render json: {aha: 'aha'}
+      render json: { aha: 'aha' }
     end
 
     def index
