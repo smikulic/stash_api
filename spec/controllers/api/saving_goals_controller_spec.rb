@@ -6,7 +6,7 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Saving goal.
-  let(:valid_attributes) do
+  let!(:valid_attributes) do
     { user_id: '1',
       description: 'Random Goal 1',
       deadline: 'Sun, 06 Nov 2016 12:04:10 +0100',
@@ -14,7 +14,7 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
   end
 
   let(:invalid_attributes) do
-    { user_id: nil,
+    { user_id: 'nil',
       description: 'Random Goal 1',
       deadline: 'Sun, 06 Nov 2016 12:04:10 +0100',
       value: 2700 }
@@ -79,30 +79,39 @@ RSpec.describe Api::SavingGoalsController, type: :controller do
 
   describe 'POST #create' do
     context 'with valid params' do
-      let!(:new_saving_goal) { SavingGoal.create(valid_attributes) }
-      # it 'creates a new SavingGoal' do
-      #   expect do
-      #     SavingGoal.create(valid_attributes)
-      #   end.to change(SavingGoal, :count).by(1)
-      # end
 
-      it 'assigns a newly created saving_goal as @saving_goal' do
-        expect(new_saving_goal).to be_a(SavingGoal)
-        # expect(new_saving_goal).to be_persisted
+      it 'creates a new SavingGoal' do
+        mocked_user = User.new(email: 'admin@name.com',
+                             password: 'password',
+                             password_confirmation: 'password')
+        mocked_user.skip_confirmation!
+        mocked_user.save
+
+        saving_goal_mock = {
+          user_id: mocked_user.id,
+          description: 'Random Goal 1',
+          deadline: 'Sun, 06 Nov 2018 12:04:10 +0100',
+          value: 2700,
+        }
+
+        post :create, params: saving_goal_mock, format: :json
+
+        request_result = assigns(:saving_goal)
+
+        expect(response.status).to eql 201
+        expect(request_result.user_id).to eq "#{mocked_user.id}"
+        expect(request_result.value).to eq saving_goal_mock[:value]
+
+        mocked_user.destroy
       end
     end
 
-    # context 'with invalid params' do
-    #   it 'assigns a newly created but unsaved saving_goal as @saving_goal' do
-    #     post :create, saving_goal: invalid_attributes, format: :json
-    #     expect(assigns(:saving_goal)).to be_a_new(SavingGoal)
-    #   end
-
-    #   it 'returns unprocessable_entity status' do
-    #     put :create, saving_goal: invalid_attributes
-    #     expect(response.status).to eq(422)
-    #   end
-    # end
+    context 'with invalid params' do
+      it 'returns unprocessable_entity status' do
+        post :create, params: invalid_attributes, format: :json
+        expect(response.status).to eq(422)
+      end
+    end
   end
 
   # describe 'PUT #update' do
