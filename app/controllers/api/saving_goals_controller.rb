@@ -2,6 +2,7 @@
 module Api
   # Defines saving goals controller
   class SavingGoalsController < ApplicationController
+    # before_action :authenticate_user!
     before_action :set_saving_goal, only: [:show, :update, :destroy]
 
     def index
@@ -10,7 +11,6 @@ module Api
     end
 
     def show
-      @saving_goal = @saving_goal
       render json: @saving_goal
     end
 
@@ -26,14 +26,14 @@ module Api
 
     def update
       if @saving_goal.update(saving_goal_params)
-        head :no_content
+        render json: @saving_goal, status: :accepted
       else
         render json: @saving_goal.errors, status: :unprocessable_entity
       end
     end
 
     def destroy
-      @saving_goal.destroy
+      @saving_goal.destroy(params[:id])
       head :no_content
     end
 
@@ -48,6 +48,7 @@ module Api
 
     def saving_goal_params
       params.permit(
+        :id,
         :user_id,
         :description,
         :deadline,

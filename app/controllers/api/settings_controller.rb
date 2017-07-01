@@ -2,6 +2,7 @@
 module Api
   # Defines settings controller
   class SettingsController < ApplicationController
+    # before_action :authenticate_user!
     before_action :set_setting, only: [:show, :update, :destroy]
 
     def show
@@ -12,7 +13,7 @@ module Api
       @setting = Setting.new(setting_params)
 
       if @setting.save
-        render json: @setting, status: :created, location: @setting
+        render json: @setting, status: :created
       else
         render json: @setting.errors, status: :unprocessable_entity
       end
@@ -20,26 +21,34 @@ module Api
 
     def update
       if @setting.update(setting_params)
-        head :no_content
+        render json: @setting, status: :accepted
       else
         render json: @setting.errors, status: :unprocessable_entity
       end
     end
 
     def destroy
-      @setting.destroy
+      @setting.destroy(params[:id])
       head :no_content
     end
 
     private
 
     def set_setting
-      @setting = Setting.where(user_id: params[:user_id], id: params[:id])
+      @setting = Setting.where(
+        user_id: params[:user_id],
+        id: params[:id]
+      )
     end
 
     def setting_params
-      params.require(:setting).permit(:user_id, :average_monthly_incomes,
-                                      :average_monthly_expenses, :main_currency)
+      params.permit(
+        :id,
+        :user_id,
+        :average_monthly_incomes,
+        :average_monthly_expenses,
+        :main_currency
+      )
     end
   end
 end
