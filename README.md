@@ -27,6 +27,7 @@ rails 5.0.0
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-cap 
+'cap staging deploy'
+'cap production deploy'
 
 * ...
