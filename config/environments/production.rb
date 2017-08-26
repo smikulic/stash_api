@@ -53,7 +53,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "stash_api_#{Rails.env}"
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = {
-    host: 'api-staging.scroogevault.co'
+    host: 'http://www.api-staging.scroogevault.co'
   }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
