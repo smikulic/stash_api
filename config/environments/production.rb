@@ -51,6 +51,8 @@ Rails.application.configure do
   # per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "stash_api_#{Rails.env}"
+  secret_smtp_password = ENV["SECRET_SMTP_PASSWORD"]
+
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = {
     host: 'http://www.api-staging.scroogevault.co'
@@ -60,7 +62,7 @@ Rails.application.configure do
     port: 587,
     domain: 'gmail.com',
     user_name: 'stashbudget@gmail.com',
-    password: ENV["SECRET_SMTP_PASSWORD"],
+    password: secret_smtp_password,
     authentication: 'login',
     enable_starttls_auto: true
   }
