@@ -61,7 +61,7 @@ Rails.application.configure do
     port: 587,
     domain: 'gmail.com',
     user_name: 'stashbudget@gmail.com',
-    password: ENV["SECRET_SMTP_PASSWORD"],
+    password: Rails.application.secrets.secret_smtp_password, #ENV["SECRET_SMTP_PASSWORD"],
     authentication: 'login',
     enable_starttls_auto: true
   }
