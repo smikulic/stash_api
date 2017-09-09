@@ -11,6 +11,7 @@ AllCops:
     - 'config/deploy/*'
     - 'config/deploy.rb'
     - 'config/puma.rb'
+    - 'config/environments/production.rb'
     - 'config/application.rb'
     - 'config/boot.rb'
     - 'lib/tasks/*'
