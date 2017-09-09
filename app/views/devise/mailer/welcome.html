@@ -1,13 +1,11 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>My Welcome Email Template Subject</title>
+    <title>Scroogevault - Confrimation instructions</title>
     <!-- <style> -->
     <style>
     /* ZURB framework Ink */
@@ -1403,35 +1401,97 @@
       background: #f3f3f3; }
 
     /* Custom Style */
+    html, body {
+      background: #F5F5F5 !important;
+    }
+    table.body {
+      margin-top: 40px;
+    }
+    .container.body-border {
+      border: 1px solid gainsboro;
+    }
 
+    .logo {
+      width: 140px;
+    }
+    .logo-bottom {
+      width: 100px;
+    }
+
+    table.button table td {
+      background: #16a2e0;
+      border: 2px solid #16a2e0;
+    }
+    .button a {
+      padding: 15px 0;
+      color: white;
+      text-decoration: none;
+    }
+
+    h5, h6, p {
+      color: #919daf;
+    }
+
+    td.large-12.last, th.large-12.last {
+      padding-right: 32px;
+    }
+    td.large-12.last, th.large-12.first {
+      padding-left: 32px;
+    }
     </style>
   </head>
   <body>
     <span class="preheader"></span>
     <table class="body">
+        <table align="center">
+            <tbody>
+              <tr>
+                <td>
+                  <table class="row">
+                    <tbody>
+                      <tr>
+                        <th class="small-12 large-12 columns first last">
+                          <table>
+                            <tr>
+                              <th>
+                                <img class="float-left logo" src="http://res.cloudinary.com/djgh6tvhv/image/upload/v1504963040/email_logo_tidqvm.png" alt="">
+                              </th>
+                              <th class="expander"></th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
       <tr>
         <td class="center" align="center" valign="top">
           <center data-parsed="">
-            
+
             <table align="center" class="container body-border float-center"><tbody><tr><td>
               <table class="row"><tbody><tr>
                 <th class="small-12 large-12 columns first last"><table><tr><th>
-            
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table> 
                   <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table> 
             
-                  <h4>Hey <%= @email %></h4>
-                  <p>Thank you for joining Scroogevault!</p>
-                  <p>By clicking on the following link, you are confirming your email address.</p>
+                  <h5>Hey admin.admin, <!-- <%= @email[/[^@]+/] %> --></h5>
+                  <h6>Thank you for joining Scroogevault!</h6>
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table> 
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table> 
 
-                  <table class="button"><tr><td><table><tr><td><center data-parsed=""><%= link_to 'Confirm Email Address', confirmation_url(@resource, confirmation_token: @token) %></center></td></tr></table></td>
+                  <p>By clicking on the following link, you are confirming your email address.</p>
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table> 
+
+                  <center data-parsed="">
+                  <table class="button float-center"><tr><td><table><tr><td>
+                    <a href="#">Confirm Email Address</a>
+                      <!-- <%= link_to 'Confirm Email Address', confirmation_url(@resource, confirmation_token: @token) %> -->
+                  </td></tr></table></td>
                   </tr></table>
-            
-                  <!-- <center data-parsed="">
-                    <table align="center" class="menu float-center"><tr><td><table><tr>
-                      <th class="menu-item float-center"><a href="#">scroogevault.co</a></th>
-                      <th class="menu-item float-center"><a href="#">Facebook</a></th>
-                    </tr></table></td></tr></table>
-                  </center> -->
+                </center>
             
                 </th>
 <th class="expander"></th></tr></table></th>
@@ -1444,6 +1504,32 @@
         </td>
       </tr>
     </table>
+    <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table> 
+
+    <table align="center">
+        <tbody>
+          <tr>
+            <td>
+              <table class="row">
+                <tbody>
+                  <tr>
+                    <th class="small-12 large-12 columns first last">
+                      <table>
+                        <tr>
+                          <th>
+                            <img class="float-center logo-bottom" src="http://res.cloudinary.com/djgh6tvhv/image/upload/v1504963040/email_logo_tidqvm.png" alt="">
+                          </th>
+                          <th class="expander"></th>
+                        </tr>
+                      </table>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     <!-- prevent Gmail on iOS font size manipulation -->
    <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
   </body>
