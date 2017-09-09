@@ -10,5 +10,7 @@ Rails.application.routes.draw do
       resources :settings, only: [:show, :create, :update, :destroy]
     end
   end
+
+  get '/docs' => redirect('/swagger/dist/index.html?url=/apidocs/api-docs.json')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

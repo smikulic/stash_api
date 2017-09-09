@@ -2,12 +2,25 @@
 module Api
   # Defines saving goals controller
   class SavingGoalsController < ApplicationController
-    # before_action :authenticate_user!
+
+    swagger_controller :saving_goals, "User Management"
+
+    def self.add_common_params(api)
+      api.param :form, "user[name]", :string, :optional, "Name"
+      api.param :form, "user[email]", :string, :optional, "Email"
+    end
+
+    swagger_api :index do
+      summary "Fetches all User items"
+      notes "This lists all the active users"
+    end
+
+    #before_action :authenticate_user!
     before_action :set_saving_goal, only: [:show, :update, :destroy]
 
     def index
       @saving_goals = User.find(params[:user_id]).saving_goals
-      render json: @saving_goals
+      render json: @saving_goals, status: :ok
     end
 
     def show

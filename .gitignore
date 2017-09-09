@@ -23,4 +23,8 @@
 # Ignore secrets
 config/secrets.yml
 config/database.yml
+
 coverage/
+
+# Ignore swagger docs
+/public/apidocs/
