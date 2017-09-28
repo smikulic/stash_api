@@ -8,8 +8,8 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3000', 'localhost:3001', 'api-staging.scroogevault.co',
-            'api.scroogevault.co', 'staging.scroogevault.co','scroogevault.co'
+    origins 'localhost:3000', 'localhost:3001',
+            'api.scroogevault.co', 'scroogevault.co'
 
     resource '*',
              headers: :any,

@@ -54,7 +54,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = {
-    host: 'http://www.api-staging.scroogevault.co'
+    host: 'http://www.api.scroogevault.co'
   }
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
