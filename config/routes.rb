@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
   namespace :api do
-
     resources :users do
       resources :saving_goals, only: [:index, :show, :create, :update, :destroy]
       resources :settings, only: [:show, :create, :update, :destroy]
