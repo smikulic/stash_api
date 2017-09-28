@@ -3,15 +3,17 @@ module Api
   # Defines settings controller
   class SettingsController < ApplicationController
     # before_action :authenticate_user!
-    before_action :set_setting, only: [:show, :update, :destroy]
+    before_action :set_setting, only: [:update, :destroy]
 
     def show
-      render json: @setting
+      @setting_show = Setting.where(
+        user_id: params[:user_id]
+      )
+      render json: @setting_show
     end
 
     def create
       @setting = Setting.new(setting_params)
-
       if @setting.save
         render json: @setting, status: :created
       else
