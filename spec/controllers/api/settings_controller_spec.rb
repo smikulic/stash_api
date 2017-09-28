@@ -36,7 +36,7 @@ RSpec.describe Api::SettingsController, type: :controller do
           },
           format: :json
 
-      request_result = assigns(:setting)
+      request_result = assigns(:setting_show)
       expect(response.status).to eql 200
       expect(request_result).to include(mocked_setting)
 
