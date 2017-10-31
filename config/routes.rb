@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :saving_goals
+    resources :settings
+
+    root to: 'users#index'
+  end
+
   mount_devise_token_auth_for 'User', at: 'auth'
 
   namespace :api do

@@ -24,6 +24,9 @@ gem 'omniauth'
 # making cross-origin AJAX possible
 gem 'rack-cors'
 
+# Use administrate for admin panel and resource management
+gem 'administrate'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
