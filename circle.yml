@@ -7,6 +7,9 @@ dependencies:
 test:
   post:
     - bundle exec rubocop
+  branches:
+    ignore:
+      - /release-.*/ # or ignore regexes
 deployment:
   release:
     tag: /release-.*/
