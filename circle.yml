@@ -9,7 +9,7 @@ test:
     - bundle exec rubocop
   branches:
     ignore:
-      - /release-.*/ # or ignore regexes
+      tag: /release-.*/
 deployment:
   release:
     tag: /release-.*/
