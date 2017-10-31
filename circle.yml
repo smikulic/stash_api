@@ -1,14 +1,14 @@
 machine:
   ruby:
     version: 2.3.1
-  # pre:
-  #   - git clone https://github.com/rbenv/ruby-build.git && cd ruby-build && sudo sh install.sh
-  #   - rbenv install 2.3.1
-  #   - rbenv global 2.3.1
-  #   - cd $CIRCLE_PROJECT_REPONAME && gem update --system
 dependencies:
   pre:
     - mv config/secrets.yml.example config/secrets.yml
 test:
   post:
     - bundle exec rubocop
+deployment:
+  release:
+    tag: /release-.*/
+    commands:
+      - cap production deploy
