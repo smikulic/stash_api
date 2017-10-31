@@ -25,7 +25,7 @@ gem 'omniauth'
 gem 'rack-cors'
 
 # Use administrate for admin panel and resource management
-gem "administrate"
+gem 'administrate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a

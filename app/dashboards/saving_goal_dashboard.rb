@@ -1,4 +1,5 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+require 'administrate/base_dashboard'
 
 class SavingGoalDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -14,7 +15,7 @@ class SavingGoalDashboard < Administrate::BaseDashboard
     deadline: Field::String,
     value: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,7 +27,7 @@ class SavingGoalDashboard < Administrate::BaseDashboard
     :user,
     :id,
     :description,
-    :deadline,
+    :deadline
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,7 +39,7 @@ class SavingGoalDashboard < Administrate::BaseDashboard
     :deadline,
     :value,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,7 +49,7 @@ class SavingGoalDashboard < Administrate::BaseDashboard
     :user,
     :description,
     :deadline,
-    :value,
+    :value
   ].freeze
 
   # Overwrite this method to customize how saving goals are displayed

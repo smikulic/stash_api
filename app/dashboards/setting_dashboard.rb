@@ -1,4 +1,5 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+require 'administrate/base_dashboard'
 
 class SettingDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -14,7 +15,7 @@ class SettingDashboard < Administrate::BaseDashboard
     average_monthly_expenses: Field::Number,
     main_currency: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,7 +27,7 @@ class SettingDashboard < Administrate::BaseDashboard
     :user,
     :id,
     :average_monthly_incomes,
-    :average_monthly_expenses,
+    :average_monthly_expenses
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,7 +39,7 @@ class SettingDashboard < Administrate::BaseDashboard
     :average_monthly_expenses,
     :main_currency,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,7 +49,7 @@ class SettingDashboard < Administrate::BaseDashboard
     :user,
     :average_monthly_incomes,
     :average_monthly_expenses,
-    :main_currency,
+    :main_currency
   ].freeze
 
   # Overwrite this method to customize how settings are displayed

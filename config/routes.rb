@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :saving_goals
     resources :settings
 
-    root to: "users#index"
+    root to: 'users#index'
   end
 
   mount_devise_token_auth_for 'User', at: 'auth'
