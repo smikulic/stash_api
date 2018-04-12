@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Defines setting serializer
 class SettingSerializer < ActiveModel::Serializer
   attributes :id,

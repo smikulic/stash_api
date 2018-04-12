@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Defines setting model
 class Setting < ApplicationRecord
   validates_presence_of :user_id,

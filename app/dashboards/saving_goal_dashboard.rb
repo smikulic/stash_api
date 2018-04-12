@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'administrate/base_dashboard'
 
 class SavingGoalDashboard < Administrate::BaseDashboard
@@ -23,33 +24,33 @@ class SavingGoalDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :user,
-    :id,
-    :description,
-    :deadline
+  COLLECTION_ATTRIBUTES = %i[
+    user
+    id
+    description
+    deadline
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :user,
-    :id,
-    :description,
-    :deadline,
-    :value,
-    :created_at,
-    :updated_at
+  SHOW_PAGE_ATTRIBUTES = %i[
+    user
+    id
+    description
+    deadline
+    value
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :user,
-    :description,
-    :deadline,
-    :value
+  FORM_ATTRIBUTES = %i[
+    user
+    description
+    deadline
+    value
   ].freeze
 
   # Overwrite this method to customize how saving goals are displayed

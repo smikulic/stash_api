@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Defines user model
 class User < ActiveRecord::Base
   # Include default devise modules.
