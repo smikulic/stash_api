@@ -1,5 +1,5 @@
 # Change these
-server '46.101.192.190', port: 22, roles: [:web, :app, :db], primary: true
+server '206.189.15.54', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:smikulic/stash_api.git'
 set :application,     'stash_api'
