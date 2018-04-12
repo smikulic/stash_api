@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'administrate/base_dashboard'
 
 class SettingDashboard < Administrate::BaseDashboard
@@ -23,33 +24,33 @@ class SettingDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :user,
-    :id,
-    :average_monthly_incomes,
-    :average_monthly_expenses
+  COLLECTION_ATTRIBUTES = %i[
+    user
+    id
+    average_monthly_incomes
+    average_monthly_expenses
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :user,
-    :id,
-    :average_monthly_incomes,
-    :average_monthly_expenses,
-    :main_currency,
-    :created_at,
-    :updated_at
+  SHOW_PAGE_ATTRIBUTES = %i[
+    user
+    id
+    average_monthly_incomes
+    average_monthly_expenses
+    main_currency
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :user,
-    :average_monthly_incomes,
-    :average_monthly_expenses,
-    :main_currency
+  FORM_ATTRIBUTES = %i[
+    user
+    average_monthly_incomes
+    average_monthly_expenses
+    main_currency
   ].freeze
 
   # Overwrite this method to customize how settings are displayed

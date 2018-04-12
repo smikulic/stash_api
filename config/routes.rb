@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
@@ -12,8 +13,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :users do
-      resources :saving_goals, only: [:index, :show, :create, :update, :destroy]
-      resources :settings, only: [:show, :create, :update, :destroy]
+      resources :saving_goals, only: %i[index show create update destroy]
+      resources :settings, only: %i[show create update destroy]
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

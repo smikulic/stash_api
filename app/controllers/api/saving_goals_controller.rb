@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 module Api
   # Defines saving goals controller
   class SavingGoalsController < ApplicationController
     # before_action :authenticate_user!
-    before_action :set_saving_goal, only: [:show, :update, :destroy]
+    before_action :set_saving_goal, only: %i[show update destroy]
 
     def index
       @saving_goals = User.find(params[:user_id]).saving_goals

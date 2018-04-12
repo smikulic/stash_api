@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SavingGoal, type: :model do
@@ -6,7 +7,7 @@ RSpec.describe SavingGoal, type: :model do
     described_class.new(
       user_id: '123abc',
       description: 'Saving goal',
-      deadline: DateTime.now + 3.month,
+      deadline: Time.now + 3.month,
       value: 24_000
     )
   end

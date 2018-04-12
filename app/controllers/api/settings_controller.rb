@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 module Api
   # Defines settings controller
   class SettingsController < ApplicationController
     # before_action :authenticate_user!
-    before_action :set_setting, only: [:update, :destroy]
+    before_action :set_setting, only: %i[update destroy]
 
     def show
       @setting_show = Setting.where(
