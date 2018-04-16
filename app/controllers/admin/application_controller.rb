@@ -15,7 +15,7 @@ module Admin
       # TODO: Add authentication logic here.
       authenticate_or_request_with_http_basic('Administration') do |user, pass|
         md5_of_pass = Digest::MD5.hexdigest(pass)
-        user == 'mozerica' && md5_of_pass == '3919d8d015f08be17ebc30c6bdf9fd74'
+        user == 'mozerica' && md5_of_pass == '2211b2a3d870ae66968ca3f8ac0b5138'
       end
     end
 
