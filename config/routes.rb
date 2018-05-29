@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :saving_goals
+    resources :bank_accounts
     resources :settings
 
     root to: 'users#index'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users do
       resources :saving_goals, only: %i[index show create update destroy]
+      resources :bank_accounts, only: %i[index show create update destroy]
       resources :settings, only: %i[show create update destroy]
     end
   end
