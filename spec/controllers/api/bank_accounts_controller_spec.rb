@@ -8,7 +8,7 @@ RSpec.describe Api::BankAccountsController, type: :controller do
       name: 'Wells fargo',
       status: 'primary',
       currency: 'USD',
-      balance: 12000 }
+      balance: 12_000 }
   end
 
   before(:each) do
@@ -26,10 +26,10 @@ RSpec.describe Api::BankAccountsController, type: :controller do
   describe 'GET #index' do
     it 'assigns all bank_accounts as @bank_accounts' do
       mocked_bank_account = BankAccount.new(user_id: @mocked_user.id,
-                                          name: 'Wells Fargo',
-                                          status: 'primary',
-                                          currency: 'USD',
-                                          balance: 12000)
+                                            name: 'Wells Fargo',
+                                            status: 'primary',
+                                            currency: 'USD',
+                                            balance: 12_000)
       mocked_bank_account.save
 
       get :index, params: { user_id: @mocked_user.id }, format: :json
@@ -45,10 +45,10 @@ RSpec.describe Api::BankAccountsController, type: :controller do
   describe 'GET #show' do
     it 'assigns the requested bank_account as @bank_account' do
       mocked_bank_account = BankAccount.new(user_id: @mocked_user.id,
-                                          name: 'Wells Fargo',
-                                          status: 'primary',
-                                          currency: 'USD',
-                                          balance: 12000)
+                                            name: 'Wells Fargo',
+                                            status: 'primary',
+                                            currency: 'USD',
+                                            balance: 12_000)
       mocked_bank_account.save
 
       get :show,
@@ -74,7 +74,7 @@ RSpec.describe Api::BankAccountsController, type: :controller do
           name: 'Wells Fargo',
           status: 'primary',
           currency: 'USD',
-          balance: 12000
+          balance: 12_000
         }
 
         post :create, params: bank_account_mock, format: :json
@@ -99,10 +99,10 @@ RSpec.describe Api::BankAccountsController, type: :controller do
     context 'with valid params' do
       it 'updates the requested bank_account' do
         mocked_bank_account = BankAccount.new(user_id: @mocked_user.id,
-                                          name: 'Wells Fargo',
-                                          status: 'primary',
-                                          currency: 'USD',
-                                          balance: 12000)
+                                              name: 'Wells Fargo',
+                                              status: 'primary',
+                                              currency: 'USD',
+                                              balance: 12_000)
         mocked_bank_account.save
 
         updated_bank_account_mock = {
@@ -111,7 +111,7 @@ RSpec.describe Api::BankAccountsController, type: :controller do
           name: 'Wells Fargo',
           status: 'primary',
           currency: 'USD',
-          balance: 12000
+          balance: 12_000
         }
 
         put :update, params: updated_bank_account_mock, format: :json
@@ -126,10 +126,10 @@ RSpec.describe Api::BankAccountsController, type: :controller do
   describe 'DELETE #destroy' do
     it 'destroys the requested bank_account' do
       mocked_bank_account = BankAccount.new(user_id: @mocked_user.id,
-                                          name: 'Wells Fargo',
-                                          status: 'primary',
-                                          currency: 'USD',
-                                          balance: 12000)
+                                            name: 'Wells Fargo',
+                                            status: 'primary',
+                                            currency: 'USD',
+                                            balance: 12_000)
       mocked_bank_account.save
 
       delete :destroy,
