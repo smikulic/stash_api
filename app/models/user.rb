@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :saving_goals, dependent: :destroy
+  has_many :bank_accounts, dependent: :destroy
   has_many :settings, dependent: :destroy
 end
