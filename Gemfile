@@ -9,7 +9,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Build JSON APIs with ease.
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'active_model_serializers', '~> 0.9.3'
 # Devise authentication
 gem 'devise_token_auth'
 gem 'omniauth'
